@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Full Moon Template</title>    
+<link href="css/style.css" rel="stylesheet" type="text/css"/>
+<link href="css/main.css" rel="stylesheet" type="text/css"/>
+
+<script type='text/javascript' src='Scripts/jquery-1.3.2.min.js'></script>
+
+<!-- Tooltip -->
+<script type="text/javascript" src="Scripts/jquery.tipsy.js"></script>
+
+<!-- fade in/fade out -->
+<script type="text/javascript" src="Scripts/jquery.innerfade.js"></script>
+
+</head>
+
+<body>
+
+<script type='text/javascript'>
+  $(function() {
+    
+	function mainmenu(){
+		$(" #nav ul ").css({display: "none"}); // Opera Fix
+		$(" #nav li").hover(function(){
+		$(this).find('ul:first').css({visibility: "visible",display: "none"}).show(200);
+		},function(){
+		$(this).find('ul:first').css({visibility: "hidden"});
+	});
+	}
+
+ 	$(document).ready(function(){
+		mainmenu();
+	});
+	
+    $('#example-1').tipsy();
+    
+    $('#north').tipsy({gravity: 'n'});
+    $('#south').tipsy({gravity: 's'});
+    $('#east').tipsy({gravity: 'e'});
+    $('#west').tipsy({gravity: 'w'});
+	
+	$('.social_icons').tipsy({gravity: 's'});
+    
+    $('#auto-gravity').tipsy({gravity: $.fn.tipsy.autoNS});
+    
+    $('#example-fade').tipsy({fade: true});
+    
+    $('#example-custom-attribute').tipsy({title: 'id'});
+    $('#example-callback').tipsy({title: function() { return this.getAttribute('original-title').toUpperCase(); } });
+    $('#example-fallback').tipsy({fallback: "Where's my tooltip yo'?" });
+    
+    $('#example-html').tipsy({html: true });
+
+	});
+ 
+</script>
+
+<div id="wrapper">
+  <div id="top">
+    <div id="logo"><a href="index.html"><img src="images/images/logo.png" alt="Full moon" /></a></div>
+  </div>
+  <div>
+    <ul id="nav">
+      <li><a href="index.html">Home</a>
+        <ul>
+          <li><a href="index.html">Index width header</a></li>
+          <li><a href="index_image.html">Index image header</a></li>
+          <li><a href="index-featured-list.html">Index featured list</a></li>
+          <li><a href="index_no_header.html">Index with no header</a></li>
+        </ul>
+      </li>
+      <li><a href="#">About</a>
+        <ul>
+          <li><a href="about-full.html">Full-width page</a></li>
+          <li><a href="about-two-third.html">Two-third page</a></li>
+          <li><a href="team.html">Team</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Portfolio</a>
+        <ul>
+          <li><a href="portfolio-grid.html">Portfolio - grid</a></li>
+          <li><a href="portfolio-grid-two-third.html">Portfolio - two-third</a></li>
+          <li><a href="portfolio-list.html">Portfolio - list</a></li>
+          <li><a href="portfolio-detail.html">Portfolio detail</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Gallery</a>
+        <ul>
+          <li><a href="gallery-full-width.html">Gallery - full-width</a></li>
+          <li><a href="gallery-two-third.html">Gallery - two-third</a></li>
+          <li><a href="gallery-image.html">Image Gallery</a></li>
+          <li><a href="gallery-video.html">Video Gallery</a></li>
+          <li><a href="gallery-mixed.html">Mixed Gallery</a></li>
+        </ul>
+      </li>
+      <li><a href="clients.html">Clients</a></li>
+       <li><a href="#">Blog</a>
+        <ul>
+          <li><a href="blog.html">Blog overview</a></li>
+          <li><a href="blog-detail.html">Blog detail</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Misc</a>
+        <ul>
+          <li><a href="styled-elements.html">Styled elements</a></li>
+          <li><a href="price-table.html">Price table</a></li>
+          <li><a href="404.html">404</a></li>
+        </ul>
+      </li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+  <div id="contentWrap">
+  <div id="breadcrumb">
+      <h4>You are here <span class="breadcrumb_link"><a href="index.html">Home</a></span> / <span class="breadcrumb_link"><a href="#">Misc</a></span> / <span class="breadcrumb_link"><a href="#">Price table</a></span></h4>
+    </div>
+    <!-- end breadctum -->
+    <div class="hr_line"></div>
+    <div class="intro">
+      <h2>Best prices on the market!</h2>
+       <p>During the rest of that day there was no other adventure to mar the peace of their journey. Once, indeed, the Tin Woodman stepped upon a beetle that was crawling along the road, and killed the poor little thing. This made the Tin Woodman very unhappy, for he was always careful not to hurt any living creature; and as he walked along he wept several tears of sorrow and regret. These tears ran slowly down his face and over the hinges of his jaw, and there they rusted.</p>
+    </div>
+    <div id="content-full">
+    
+    <div id="price-table">
+
+    	<div class="service-list pack odd">
+
+       	  <div class="pt-header">
+
+            	<h2>Our services</h2>
+            <p class="intro_price">This is a list of all our services.</p>
+
+            </div>
+
+            <ul class="price">
+
+            	<li class="odd">Data #1</li>
+				<li class="even"><span class="odd">Data #2</span></li>
+                <li class="odd">Data #3</li>
+                <li class="even"><span class="odd">Data #4</span></li>
+                <li class="odd">Data #5</li>
+                <li class="even"><span class="odd">Data #6</span></li>
+                <li class="odd">Data #7</li>
+                <li class="even"><span class="odd">Data #8</span></li>
+                <li class="odd">Data #9</li>
+                <li class="even"><span class="odd">Data #1</span>0</li>
+                <li class="odd">Data #11</li>
+                <li class="even"><span class="odd">Data #1</span>2</li>
+
+           </ul>
+
+      </div>
+
+      <div class="pro pack even">
+
+      	<h2><span class="highlight">PRO</span></h2>
+		<p class="intro_price">This is our PRO package. </p>
+
+<ul class="price">
+
+            	<li class="odd">2000</li>
+                <li class="even">50</li>
+                <li class="odd">500</li>
+                <li class="even">20</li>
+                <li class="odd">20</li>
+                <li class="even">60</li>
+                <li class="odd"><img src="images/icons/true.png" alt="icon" /></li>
+                <li class="even"><img src="images/icons/true.png" alt="icon" /></li>
+                <li class="odd"><img src="images/icons/true.png" alt="icon" /></li>
+                <li class="even"><img src="images/icons/true.png" alt="icon" /></li>
+                <li class="odd"><img src="images/icons/true.png" alt="icon" /></li>
+                <li class="even"><img src="images/icons/true.png" alt="icon" /></li>
+                <li class="buy"><a class="button" href="#">Buy now</a></li>
+
+         	</ul>
+
+    </div>
+
+    <div class="plus pack odd">
+
+    	<h2>PLUS</h2>
+        <p class="intro_price">This is our PLUS package. </p>
+
+			<ul class="price">
+    
+            	<li class="odd">1000</li>
+                <li class="even">40</li>
+                <li class="odd">400</li>
+                <li class="even">15</li>
+                <li class="odd">15</li>
+                <li class="even">50</li>
+                <li class="odd"><img src="images/icons/true.png" alt="icon" /></li>
+                <li class="even"><img src="images/icons/true.png" alt="icon" /></li>
+                <li class="odd"><img src="images/icons/true.png" alt="icon" /></li>
+                <li class="even"><img src="images/icons/true.png" alt="icon" /></li>
+                <li class="odd"><img src="images/icons/false.png" alt="icon" /></li>
+                <li class="even"><img src="images/icons/true.png" alt="icon" /></li>
+                <li class="buy"><a class="button" href="#">Buy now</a></li>
+
+       		</ul>
+
+    </div>
+	<div class="standard pack even">
+
+    	<h2>STANDARD</h2>
+        <p class="intro_price">This is our STANDARD package.</p>
+
+			<ul class="price">
+
+            	<li class="odd">500</li>
+                <li class="even">30</li>
+                <li class="odd">300</li>
+                <li class="even">12</li>
+                <li class="odd">12</li>
+                <li class="even">40</li>
+                <li class="odd"><img src="images/icons/true.png" alt="icon" /></li>
+                <li class="even"><img src="images/icons/true.png" alt="icon" /></li>
+                <li class="odd"><img src="images/icons/true.png" alt="icon" /></li>
+                <li class="even"><img src="images/icons/false.png" alt="icon" /></li>
+                <li class="odd"><img src="images/icons/false.png" alt="icon" /></li>
+                <li class="even"><img src="images/icons/true.png" alt="icon" /></li>
+                <li class="buy"><a class="button" href="#">Buy now</a></li>
+
+     		</ul>
+
+     </div>
+             
+	<div class="basic pack odd">
+
+    	<h2>BASIC</h2>
+        <p class="intro_price">This is our BASIC package.</p>
+
+			<ul class="price">
+
+            	<li class="odd">20</li>
+                <li class="even">10</li>
+                <li class="odd">100</li>
+                <li class="even">8</li>
+                <li class="odd">6</li>
+                <li class="even">20</li>
+                <li class="odd"><img src="images/icons/true.png" alt="icon" /></li>
+                <li class="even"><img src="images/icons/false.png" alt="icon" /></li>
+                <li class="odd"><img src="images/icons/true.png" alt="icon" /></li>
+                <li class="even"><img src="images/icons/false.png" alt="icon" /></li>
+                <li class="odd"><img src="images/icons/false.png" alt="icon" /></li>
+                <li class="even"><img src="images/icons/false.png" alt="icon" /></li>
+                <li class="buy"><a class="button" href="#">Buy now</a></li>
+
+          	</ul>
+
+     	</div>
+      </div> <!-- end price-table -->
+    </div>
+  </div>
+  <div id="footer">
+    <h4>Full Moon © 2010 All rights reserved. Powered by: <span class="link"><a href="http://themeforest.net/user/agurghis?ref=agurghis" class="footer_link">Alex Gurghis</a></span></h4>
+  </div>
+  <div id="social"> <a href="#"><img src="images/social_media_buttons/facebook_alt.png" alt="Facebook" class="social_icons" title="Facebook"/></a><a href="#"><img src="images/social_media_buttons/twitter.png" alt="Twitter" class="social_icons" title="Twitter"/></a><a href="#"><img src="images/social_media_buttons/flickr.png" alt="Flickr" class="social_icons" title="Flickr"/></a><a href="#"><img src="images/social_media_buttons/delicious.png" alt="Delicious" class="social_icons" title="Delicious" /></a><a href="#"><img src="images/social_media_buttons/diigo.png" alt="Diigo" class="social_icons" title="Diigo" /></a><a href="#"><img src="images/social_media_buttons/email.png" alt="Email" class="social_icons" title="Email" /></a><a href="#"><img src="images/social_media_buttons/google.png" alt="Google buzz" class="social_icons" title="Google buzz" /></a><a href="#"><img src="images/social_media_buttons/lastfm.png" alt="Lastfm" class="social_icons" title="Lastfm" /></a><a href="#"><img src="images/social_media_buttons/linkedin.png" alt="Linkedin" class="social_icons" title="Linkedin" /></a><a href="#"><img src="images/social_media_buttons/myspace.png" alt="Myspace" class="social_icons" title="Myspace" /></a><a href="#"><img src="images/social_media_buttons/picasa.png" alt="Picasa" class="social_icons" title="Picasa" /></a><a href="#"><img src="images/social_media_buttons/posterous.png" alt="Posterous" class="social_icons" title="Posterous" /></a><a href="#"><img src="images/social_media_buttons/rss.png" alt="RSS" class="social_icons" title="RSS" /></a><a href="#"><img src="images/social_media_buttons/sharethis.png" alt="sharethis" class="social_icons" title="Share this" /></a><a href="#"><img src="images/social_media_buttons/stumbleupon.png" alt="Stumbleupon" class="social_icons" title="Stumbleupon" /></a><a href="#"><img src="images/social_media_buttons/technorati.png" alt="Technocrati" class="social_icons" title="Technorati" /></a><a href="#"><img src="images/social_media_buttons/youtube.png" alt="Youtube" class="social_icons" title="Youtube" /></a><a href="#"><img src="images/social_media_buttons/skype_alt.png" alt="Skype" class="social_icons" title="Skype" /></a><a href="#"><img src="images/social_media_buttons/dribble_alt.png" alt="Dribble" class="social_icons" title="Dribble" /></a><a href="#"><img src="images/social_media_buttons/vimeoo.png" alt="Vimeo" class="social_icons" title="Vimeo" /></a><a href="#"><img src="images/social_media_buttons/wordpress.png" alt="Blog" class="social_icons" title="Blog" /></a></div>
+</div>
+
+<div class="bottom">
+</div>
+
+<!-- twitter -->
+<script src="Scripts/twitter.js" type="text/javascript"></script>
+<script src="http://www.twitter.com/statuses/user_timeline/agurghis.json?callback=twitterCallback1&amp;count=1&amp;cb=0.947219172026962" type="text/javascript"></script>
+<script src="http://www.twitter.com/statuses/user_timeline/agurghis.json?callback=twitterCallback2&amp;count=1&amp;cb=0.947219172026962" type="text/javascript"></script>
+
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Full Moon Template</title>    
+<link href="css/style.css" rel="stylesheet" type="text/css"/>
+<link href="css/main.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+
+<script type='text/javascript' src='Scripts/jquery-1.3.2.min.js'></script>
+
+<!-- Tooltip -->
+<script type="text/javascript" src="Scripts/jquery.tipsy.js"></script>
+
+<!-- fade in/fade out -->
+<script type="text/javascript" src="Scripts/jquery.innerfade.js"></script>
+
+<!-- fancy box -->
+<script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<script type="text/javascript" src="fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+<script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+</head>
+
+<body>
+
+<script type='text/javascript'>
+  $(function() {
+   
+   function mainmenu(){
+		$(" #nav ul ").css({display: "none"}); // Opera Fix
+		$(" #nav li").hover(function(){
+		$(this).find('ul:first').css({visibility: "visible",display: "none"}).show(200);
+		},function(){
+		$(this).find('ul:first').css({visibility: "hidden"});
+	});
+	}
+
+ 	$(document).ready(function(){
+		mainmenu();
+	});
+   
+    $('#example-1').tipsy();
+    
+    $('#north').tipsy({gravity: 'n'});
+    $('#south').tipsy({gravity: 's'});
+    $('#east').tipsy({gravity: 'e'});
+    $('#west').tipsy({gravity: 'w'});
+	
+	$('.social_icons').tipsy({gravity: 's'});
+    
+    $('#auto-gravity').tipsy({gravity: $.fn.tipsy.autoNS});
+    
+    $('#example-fade').tipsy({fade: true});
+    
+    $('#example-custom-attribute').tipsy({title: 'id'});
+    $('#example-callback').tipsy({title: function() { return this.getAttribute('original-title').toUpperCase(); } });
+    $('#example-fallback').tipsy({fallback: "Where's my tooltip yo'?" });
+    
+    $('#example-html').tipsy({html: true });
+	
+	/* This is basic - uses default settings */
+		
+	$("a.image").fancybox();
+		
+	/* Using custom settings */
+		
+	$("a#inline").fancybox({
+			'hideOnContentClick': true
+	});
+	
+	/* Apply fancybox to multiple items */
+		
+	$("a.group").fancybox({
+		'transitionIn'	:	'elastic',
+		'transitionOut'	:	'elastic',
+		'speedIn'		:	600, 
+		'speedOut'		:	200, 
+		'overlayShow'	:	false
+	});
+	
+	$(".youtube").click(function() {
+	$.fancybox({
+			'padding'		: 0,
+			'autoScale'		: false,
+			'transitionIn'	: 'none',
+			'transitionOut'	: 'none',
+			'title'			: this.title,
+			'width'		: 680,
+			'height'		: 495,
+			'href'			: this.href.replace(new RegExp("watch\\?v=", "i"), 'v/'),
+			'type'			: 'swf',
+			'swf'			: {
+			   	 'wmode'		: 'transparent',
+				'allowfullscreen'	: 'true'
+			}
+		});
+
+			return false;
+			
+		});
+			
+			$(".vimeo").click(function(){
+			$.fancybox({
+					'padding':0,
+					'autoScale':false,
+					'transitionIn':'none',
+					'transitionOut':'none',
+					'title':this.title,
+					'width':600,
+					'height':398,
+					'href':this.href.replace(new RegExp("([0-9])","i"),'moogaloop.swf?clip_id=$1'),'type':'swf'
+					});
+			return false;
+		});
+
+	});
+ 
+</script>
+<div id="wrapper">
+  <div id="top">
+    <div id="logo"><a href="index.html"><img src="images/images/logo.png" alt="Full moon" /></a></div>
+  </div>
+  <div>
+    <ul id="nav">
+      <li><a href="index.html">Home</a>
+        <ul>
+          <li><a href="index.html">Index width header</a></li>
+          <li><a href="index_image.html">Index image header</a></li>
+          <li><a href="index-featured-list.html">Index featured list</a></li>
+          <li><a href="index_no_header.html">Index with no header</a></li>
+        </ul>
+      </li>
+      <li><a href="#">About</a>
+        <ul>
+          <li><a href="about-full.html">Full-width page</a></li>
+          <li><a href="about-two-third.html">Two-third page</a></li>
+          <li><a href="team.html">Team</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Portfolio</a>
+        <ul>
+          <li><a href="portfolio-grid.html">Portfolio - grid</a></li>
+          <li><a href="portfolio-grid-two-third.html">Portfolio - two-third</a></li>
+          <li><a href="portfolio-list.html">Portfolio - list</a></li>
+          <li><a href="portfolio-detail.html">Portfolio detail</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Gallery</a>
+        <ul>
+          <li><a href="gallery-full-width.html">Gallery - full-width</a></li>
+          <li><a href="gallery-two-third.html">Gallery - two-third</a></li>
+          <li><a href="gallery-image.html">Image Gallery</a></li>
+          <li><a href="gallery-video.html">Video Gallery</a></li>
+          <li><a href="gallery-mixed.html">Mixed Gallery</a></li>
+        </ul>
+      </li>
+      <li><a href="clients.html">Clients</a></li>
+       <li><a href="#">Blog</a>
+        <ul>
+          <li><a href="blog.html">Blog overview</a></li>
+          <li><a href="blog-detail.html">Blog detail</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Misc</a>
+        <ul>
+          <li><a href="styled-elements.html">Styled elements</a></li>
+          <li><a href="price-table.html">Price table</a></li>
+          <li><a href="404.html">404</a></li>
+        </ul>
+      </li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+  <div id="contentWrap">
+    <div id="breadcrumb">
+      <h4>You are here <span class="breadcrumb_link"><a href="index.html">Home</a></span> / <span class="breadcrumb_link"><a href="#">Portfolio</a></span> / <span class="breadcrumb_link"><a href="#">Portfolio detail</a></span></h4>
+    </div>
+    <!-- end breadctum -->
+    <div class="hr_line"></div>
+    <div class="intro">
+      <h2>Our beautiful project</h2>
+      <p>During the rest of that day there was no other adventure to mar the peace of their journey. Once, indeed, the Tin Woodman stepped upon a beetle that was crawling along the road, and killed the poor little thing. This made the Tin Woodman very unhappy, for he was always careful not to hurt any living creature; and as he walked along he wept several tears of sorrow and regret. These tears ran slowly down his face and over the hinges of his jaw, and there they rusted.</p>
+    </div>
+    <div class="hr_line"></div>
+    <div id="content-two-third">
+      <div class="portfolio-detail-img"><img src="images/portoflio/detail/portfolio-detail.jpg" alt="Project title" /></div>
+      <div class="two-third portfolio-detail">
+        <p> Is that the way they heave in the marchant service? he roared. Spring, thou sheep-head; spring, and break thy backbone! Why don't ye spring, I say, all of ye&amp;mdash;spring! Quohog! spring, thou chap with the red <a href="#">whiskers</a>; spring there, Scotch-cap; spring, thou green pants. Spring, I say, all of ye, and spring your eyes out! And so saying, he moved along the windlass, here and there using his leg very freely, while imperturbable Bildad kept leading off with his psalmody.</p>
+      </div>
+      <div class="hr"></div>
+      <div class="one-third portfolio-detail"> <img class="icon_left" src="images/icons/book.png" alt="icon" />
+        <h2>Clean Design</h2>
+        <p>There are only two books in being which at all pretend to put the living sperm whale before you, and at the same time, in the remotest <a href="#">degree</a> succeed in the attempt.</p>
+      </div>
+      <div class="one-third portfolio-detail"> <img class="icon_left" src="images/icons/monitor.png" alt="icon" />
+        <h2>Great Functionality</h2>
+        <p>The training of myself and the young Martians was conducted solely by the women, who not only attend to the education of the young in the arts of individual defense and offense.</p>
+      </div>
+      <div class="hr"></div>
+      <div class="two-third portfolio-detail"> <img class="icon_left" src="images/icons/monitor.png" alt="icon" />
+        <h2>Download it and enjoy it!</h2>
+        <p>The room was well lighted by a number of large windows and was beautifully decorated with mural paintings and mosaics, but upon all there seemed to rest that indefinable touch of the finger of antiquity which convinced me that the architects and builders of these wondrous creations had nothing in common with the crude half-brutes which now occupied them.</p>
+      </div>
+      <div class="portfolio-detail-thumbs"> 
+      <a class="project-detail-thumb youtube" href="http://www.youtube.com/watch?v=SpmGWtNqF2Q"><img alt="single-image" src="images/portoflio/detail/thumb-detail_01.jpg" /></a> <a class="project-detail-thumb youtube" href="http://www.youtube.com/watch?v=SpmGWtNqF2Q"><img alt="single-image" src="images/portoflio/detail/thumb-detail_02.jpg" /></a> <a class="project-detail-thumb image" href="images/portoflio/portfolio-detail.jpg"><img alt="single-image" src="images/portoflio/detail/thumb-detail_03.jpg" /></a> <a class="project-detail-thumb vimeo" href="http://vimeo.com/1621245"><img alt="single-image" src="images/portoflio/detail/thumb-detail_04.jpg" /></a> <a class="project-detail-thumb vimeo" href="http://vimeo.com/7700248"><img alt="single-image" src="images/portoflio/detail/thumb-detail_05.jpg" /></a>
+      </div>
+    </div>
+    <div id="column" class="right">
+    
+      <div class="blog_widget">
+        <h4>Sidebar menu</h4>
+        <div>
+          <ul class="sidenav">
+            <li><a href="#">Our Mission</a></li>
+            <li><a href="#">Our Philosophy</a></li>
+            <li><a href="#">Our Services</a></li>
+            <li><a href="#">Our Vision</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="blog_widget">
+        <h4>What clients said</h4>
+        <div class="blockquote">
+          <p> The old man looked at him and silently began to cry.   The weak tears of age rolled down his cheeks and all the feebleness of his eighty-seven years showed in his grief-stricken countenance. <cite>– Jack London</cite></p>
+        </div>
+      </div>
+      <div id="twitter">
+        <h4> <span class="icon">Latest tweet</span> <span class="alltweets"> <a href="http://www.twitter.com/agurghis">All tweets</a></span></h4>
+        <div id="twitter_right"> Please wait while our tweets load <img src="images/images/indicator.gif" alt="loader" /></div>
+      </div>
+    </div>
+  </div>
+  <div id="footer">
+    <h4>Full Moon © 2010 All rights reserved. Powered by: <span class="link"><a href="http://themeforest.net/user/agurghis?ref=agurghis" class="footer_link">Alex Gurghis</a></span></h4>
+  </div>
+  <div id="social"> <a href="#"><img src="images/social_media_buttons/facebook_alt.png" alt="Facebook" class="social_icons" title="Facebook"/></a><a href="#"><img src="images/social_media_buttons/twitter.png" alt="Twitter" class="social_icons" title="Twitter"/></a><a href="#"><img src="images/social_media_buttons/flickr.png" alt="Flickr" class="social_icons" title="Flickr"/></a><a href="#"><img src="images/social_media_buttons/delicious.png" alt="Delicious" class="social_icons" title="Delicious" /></a><a href="#"><img src="images/social_media_buttons/diigo.png" alt="Diigo" class="social_icons" title="Diigo" /></a><a href="#"><img src="images/social_media_buttons/email.png" alt="Email" class="social_icons" title="Email" /></a><a href="#"><img src="images/social_media_buttons/google.png" alt="Google buzz" class="social_icons" title="Google buzz" /></a><a href="#"><img src="images/social_media_buttons/lastfm.png" alt="Lastfm" class="social_icons" title="Lastfm" /></a><a href="#"><img src="images/social_media_buttons/linkedin.png" alt="Linkedin" class="social_icons" title="Linkedin" /></a><a href="#"><img src="images/social_media_buttons/myspace.png" alt="Myspace" class="social_icons" title="Myspace" /></a><a href="#"><img src="images/social_media_buttons/picasa.png" alt="Picasa" class="social_icons" title="Picasa" /></a><a href="#"><img src="images/social_media_buttons/posterous.png" alt="Posterous" class="social_icons" title="Posterous" /></a><a href="#"><img src="images/social_media_buttons/rss.png" alt="RSS" class="social_icons" title="RSS" /></a><a href="#"><img src="images/social_media_buttons/sharethis.png" alt="sharethis" class="social_icons" title="Share this" /></a><a href="#"><img src="images/social_media_buttons/stumbleupon.png" alt="Stumbleupon" class="social_icons" title="Stumbleupon" /></a><a href="#"><img src="images/social_media_buttons/technorati.png" alt="Technocrati" class="social_icons" title="Technorati" /></a><a href="#"><img src="images/social_media_buttons/youtube.png" alt="Youtube" class="social_icons" title="Youtube" /></a><a href="#"><img src="images/social_media_buttons/skype_alt.png" alt="Skype" class="social_icons" title="Skype" /></a><a href="#"><img src="images/social_media_buttons/dribble_alt.png" alt="Dribble" class="social_icons" title="Dribble" /></a><a href="#"><img src="images/social_media_buttons/vimeoo.png" alt="Vimeo" class="social_icons" title="Vimeo" /></a><a href="#"><img src="images/social_media_buttons/wordpress.png" alt="Blog" class="social_icons" title="Blog" /></a></div>
+</div>
+
+<div class="bottom">
+</div>
+
+<!-- twitter -->
+<script src="Scripts/twitter.js" type="text/javascript"></script>
+<script src="http://www.twitter.com/statuses/user_timeline/agurghis.json?callback=twitterCallback1&amp;count=1" type="text/javascript"></script>
+<script src="http://www.twitter.com/statuses/user_timeline/agurghis.json?callback=twitterCallback2&amp;count=1" type="text/javascript"></script>
+
+</body>
+</html>

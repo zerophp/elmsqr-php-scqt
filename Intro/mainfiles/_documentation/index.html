@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Template Documentation Template</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;Full moon&rdquo; Documentation by &ldquo;Alex Gurghis&rdquo; v1.0</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;Full moon&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 01/06/2011<br>
+					By: Alex Gurghis<br>
+					Email: <a href="mailto:me@alexgurghis.com">me@alexgurghis.com</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing my theme. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://themeforest.net/user/agurghis?ref=agurghis">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#htmlStructure">HTML Structure</a></li>
+			<li><a href="#cssFiles">CSS Files and Structure</a></li>
+			<li><a href="#javascript">JavaScript</a></li>
+			<li><a href="#psdFiles">PSD Files</a></li>
+			<li><a href="#credits">Sources and Credits</a></li>
+		</ol>
+		
+    <hr>
+		
+		<h3 id="htmlStructure"><strong>A) HTML Structure</strong> - <a href="#toc">top</a></h3>
+		<p>This theme is a fixed layout with two columns. All of the information within the main content area is nested within a div with an id of &quot;contentWrap". The sidebar's (column #2) content is within a div with an id of "column". The general template structure is the same throughout the template. Here is the general structure.</p>
+		
+		<img src="assets/images/htmlstructure.png" alt="HTML Structure" />
+		
+	  <p>If you would like to edit the color, font, or style of any elements in one of these columns, go to folder css and open files style.css and main.css. If you find that your new style is not overriding, it is most likely because of a specificity problem. Scroll down in your CSS file and make sure that there isn't a similar style that has more weight.</p>
+<p>I.E.</p>
+
+<pre>	#contentWrap {<br>    width: 940px;<br>    background-color: #ffffff;<br>    padding-top: 20px;<br>	  float: left;<br>  }
+</pre>
+
+	  <p>So, to ensure that your new styles are applied, make sure that they carry enough "weight" and that there isn't a style lower in the CSS file that is being applied after yours.</p> 
+
+		<hr>
+
+		<h3 id="cssFiles"><strong>B) CSS Files and Structure</strong> - <a href="#toc">top</a></h3>
+
+		<p>I'm using two CSS files in this theme. The first one is a generic reset file. Many browser interpret the default behavior of html elements differently. By using a general reset CSS file, we can work round this. This file also contains some general styling, such as anchor tag colors, font-sizes, etc. Keep in mind, that these values might be overridden somewhere else in the file.</p> 
+
+		<p>The second file contains all of the specific stylings for the page. The file is separated into sections using:</p>  
+
+<pre>	/* Main settings */
+
+	some code
+
+	/* Menu */
+	
+	some code
+	
+	/* Submenu */
+	
+	some code
+	
+	/* SUBSUB Menu */
+	
+	some code
+
+  /* sidebar menu */
+
+  some code
+	
+	etc, etc. 
+</pre>
+		
+<p>If you would like to edit a specific section of the site, simply find the appropriate label in the CSS file, and then scroll down until you find the appropriate style that needs to be edited.</p>
+<hr>
+		
+		<h3 id="javascript"><strong>C) JavaScript</strong> - <a href="#toc">top</a></h3>
+		
+		<p>This theme imports three Javascript files.</p>
+		
+		<ol>
+			<li>jQuery</li>
+			<li>Twitter api</li>
+		</ol>
+		  
+		<ol>
+	    <li>jQuery is a Javascript library that greatly reduces the amount of code that you must write. </li>
+			<li>In addition to the custom scripts, I used the some script to call the tweets. The script is placed on bottom of the page. There are two spots were the tweets are called, one in maine content (two-third wide) and second spot on sidebar (one third wide). There are two api calls for both spots:
+              <pre>&lt;script src=&quot;http://www.twitter.com/statuses/user_timeline/agurghis.json?
+callback=twitterCallback1&amp;amp;count=1&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+<br>&lt;script src=&quot;http://www.twitter.com/statuses/user_timeline/agurghis.json?
+callback=twitterCallback2&amp;amp;count=1&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</pre></li>
+		</ol>
+		
+<hr>
+		
+		<h3 id="psdFiles"><strong>D) PSD Files</strong> - <a href="#toc">top</a></h3>
+		
+		<p>I've included two psds with this theme:</p>
+		
+			<ol>
+				<li>The logo</li>
+				<li>The list bullets</li>
+			</ol>
+<hr>
+		
+		<h3 id="credits"><strong>E) Sources and Credits</strong> - <a href="#toc">top</a></h3>
+		
+		<p>I've used the following images, icons or other files as listed:<ul>
+			<li>Shimmer Icons - Free Set <a href="http://www.creativefreedom.co.uk/icon-design/" title="Icon Design by Creative Freedom">Icon Design by Creative Freedom</a></li>
+			<li>Instantshift icons <a href="http://www.instantshift.com/2010/12/07/socialshift-icon-set-246-free-social-networking-icons">instantshift.com</a></li>
+			<li> Icons <a href="http://www.midtonedesign.com/#portfolio?32pxmania">midtonedesign.com</a></li>
+			<li> Text from fillerati.com <a href="http://www.fillerati.com/">fillerati.com</a></li>
+		</ul>
+		<p>I've used the following scripts:. </p>
+		<ul>
+		  <li>Fancybox <a href="http://fancybox.net/"> fancybox.net</a></li>
+		  <li>Cool tipsy <a href="http://onehackoranother.com/projects/jquery/tipsy/" title="Icon Design by Creative Freedom"> onehackoranother.com</a></li>
+		  <li>Featured list <a href="http://jqueryglobe.com/article/feature-list">jqueryglobe.com</a></li>
+		  <li>Slide thumbs <a href="http://jqueryglobe.com/article/slide-thumbs">jqueryglobe.com</a></li>
+	  </ul>
+<hr>
+		
+		<p>Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme. No guarantees, but I'll do my best to assist. If you have a more general question relating to the themes on ThemeForest, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p> 
+		
+		<p class="append-bottom alt large"><strong>Alex Gurghis</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>

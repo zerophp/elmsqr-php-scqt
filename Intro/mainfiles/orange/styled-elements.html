@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Full Moon Template</title>    
+<link href="css/style.css" rel="stylesheet" type="text/css"/>
+<link href="css/main.css" rel="stylesheet" type="text/css"/>
+
+<script type='text/javascript' src='Scripts/jquery-1.3.2.min.js'></script>
+
+<!-- Tooltip -->
+<script type="text/javascript" src="Scripts/jquery.tipsy.js"></script>
+
+<!-- fade in/fade out -->
+<script type="text/javascript" src="Scripts/jquery.innerfade.js"></script>
+
+<!-- toggle -->
+<script type="text/javascript" src="Scripts/toggle.js"></script>
+
+</head>
+
+<body>
+
+<script type='text/javascript'>
+  $(function() {
+    
+	function mainmenu(){
+		$(" #nav ul ").css({display: "none"}); // Opera Fix
+		$(" #nav li").hover(function(){
+		$(this).find('ul:first').css({visibility: "visible",display: "none"}).show(200);
+		},function(){
+		$(this).find('ul:first').css({visibility: "hidden"});
+	});
+	}
+
+ 	$(document).ready(function(){
+		mainmenu();
+	});
+	
+    $('#example-1').tipsy();
+    
+    $('#north').tipsy({gravity: 'n'});
+    $('#south').tipsy({gravity: 's'});
+    $('#east').tipsy({gravity: 'e'});
+    $('#west').tipsy({gravity: 'w'});
+	
+	$('.social_icons').tipsy({gravity: 's'});
+    
+    $('#auto-gravity').tipsy({gravity: $.fn.tipsy.autoNS});
+    
+    $('#example-fade').tipsy({fade: true});
+    
+    $('#example-custom-attribute').tipsy({title: 'id'});
+    $('#example-callback').tipsy({title: function() { return this.getAttribute('original-title').toUpperCase(); } });
+    $('#example-fallback').tipsy({fallback: "Where's my tooltip yo'?" });
+    
+    $('#example-html').tipsy({html: true });
+
+	});
+ 
+</script>
+
+<div id="wrapper">
+  <div id="top">
+    <div id="logo"><a href="index.html"><img src="images/images/logo.png" alt="Full moon" /></a></div>
+  </div>
+  <div>
+    <ul id="nav">
+      <li><a href="index.html">Home</a>
+        <ul>
+          <li><a href="index.html">Index width header</a></li>
+          <li><a href="index_image.html">Index image header</a></li>
+          <li><a href="index-featured-list.html">Index featured list</a></li>
+          <li><a href="index_no_header.html">Index with no header</a></li>
+        </ul>
+      </li>
+      <li><a href="#">About</a>
+        <ul>
+          <li><a href="about-full.html">Full-width page</a></li>
+          <li><a href="about-two-third.html">Two-third page</a></li>
+          <li><a href="team.html">Team</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Portfolio</a>
+        <ul>
+          <li><a href="portfolio-grid.html">Portfolio - grid</a></li>
+          <li><a href="portfolio-grid-two-third.html">Portfolio - two-third</a></li>
+          <li><a href="portfolio-list.html">Portfolio - list</a></li>
+          <li><a href="portfolio-detail.html">Portfolio detail</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Gallery</a>
+        <ul>
+          <li><a href="gallery-full-width.html">Gallery - full-width</a></li>
+          <li><a href="gallery-two-third.html">Gallery - two-third</a></li>
+          <li><a href="gallery-image.html">Image Gallery</a></li>
+          <li><a href="gallery-video.html">Video Gallery</a></li>
+          <li><a href="gallery-mixed.html">Mixed Gallery</a></li>
+        </ul>
+      </li>
+      <li><a href="clients.html">Clients</a></li>
+       <li><a href="#">Blog</a>
+        <ul>
+          <li><a href="blog.html">Blog overview</a></li>
+          <li><a href="blog-detail.html">Blog detail</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Misc</a>
+        <ul>
+          <li><a href="styled-elements.html">Styled elements</a></li>
+          <li><a href="price-table.html">Price table</a></li>
+          <li><a href="404.html">404</a></li>
+        </ul>
+      </li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+  <div id="contentWrap">
+  <div id="breadcrumb">
+      <h4>You are here <span class="breadcrumb_link"><a href="index.html">Home</a></span> / <span class="breadcrumb_link"><a href="#">Misc</a></span> / <span class="breadcrumb_link"><a href="#">Styled elements</a></span></h4>
+    </div>
+    <!-- end breadctum -->
+    <div class="hr_line"></div>
+    <div class="content-full">
+    <h2>Headers</h2>
+      <div class="full-page about">
+        <h2>H2 Header</h2>
+        <h3>H3 Header</h3>
+        <h4>H4 Header</h4>
+        <h5>H5 Header</h5>
+        <h6>H6 Header</h6>
+     </div>
+    <div class="hr_line"></div>
+
+    <h2>Bullets</h2>
+       <div class="one-third">
+      		<h5>Arrow bullets</h5>
+            <code>&lt;ul class="bullets arrow"&gt;</code>
+			<ul class="bullets arrow">
+            	<li>First list item</li>
+                <li>Second list item</li>
+                <li>Third list item</li>
+            </ul>
+      </div>
+      
+      <div class="one-third">
+      		<h5>Black bullets</h5>
+            <code>&lt;ul class="bullets black"&gt;</code>
+			<ul class="bullets black">
+            	<li>First list item</li>
+                <li>Second list item</li>
+                <li>Third list item</li>
+            </ul>
+      </div>
+      
+      <div class="one-third">
+      		<h5>Red bullets</h5>
+            <code>&lt;ul class="bullets red"&gt;</code>
+			<ul class="bullets red">
+            	<li>First list item</li>
+                <li>Second list item</li>
+                <li>Third list item</li>
+            </ul>
+      </div>
+      
+      <div class="one-third">
+      		<h5>Blue bullets</h5>
+            <code>&lt;ul class="bullets blue"&gt;</code>
+			<ul class="bullets blue">
+            	<li>First list item</li>
+                <li>Second list item</li>
+                <li>Third list item</li>
+            </ul>
+      </div>
+      
+      <div class="one-third">
+      		<h5>Yellow bullets</h5>
+            <code>&lt;ul class="bullets yellow"&gt;</code>
+			<ul class="bullets yellow">
+            	<li>First list item</li>
+                <li>Second list item</li>
+                <li>Third list item</li>
+            </ul>
+      </div>
+      
+      <div class="one-third">
+      		<h5>Green bullets</h5>
+            <code>&lt;ul class="bullets green"&gt;</code>
+			<ul class="bullets green">
+            	<li>First list item</li>
+                <li>Second list item</li>
+                <li>Third list item</li>
+            </ul>
+      </div>
+      
+      <div class="one-third">
+      		<h5>Square</h5>
+            <code>&lt;ul class="bullets square"&gt;</code>
+            <ul class="bullets square">
+            	<li>First list item</li>
+                <li>Second list item</li>
+                <li>Third list item</li>
+            </ul>
+      </div>
+      
+      <div class="one-third">
+      		<h5>Star bullets</h5>
+            <code>&lt;ul class="bullets star"&gt;</code>
+			<ul class="bullets star">
+            	<li>First list item</li>
+                <li>Second list item</li>
+                <li>Third list item</li>
+            </ul>
+      </div>
+    </div>
+    <div class="content-full">  
+    <div class="hr_line"></div>
+    <h2>Highlight text</h2>
+      
+      <div class="full-page about">
+      <p><code>&lt;span class="highlight"&gt;Your text&lt;/span&gt;</code></p>
+      <p>&nbsp;</p>
+      <p>There are only <span class="hightlight">two books</span> in being which at all pretend to put the living sperm whale before you, and at the same time, in the remotest degree succeed in the attempt. Those books are <span class="hightlight">Beale's and Bennett's</span>; both in their time surgeons to English South-Sea whale-ships, and both exact and reliable men. The original matter touching the sperm whale to be found in their volumes is necessarily small; but so far as it goes, it is of excellent quality, though mostly confined to scientific description. As yet, however, the sperm whale, scientific or poetic, lives not complete in any literature. Far above all other hunted whales, his is an unwritten life.</p>
+      </div>
+      
+    </div>
+    </div>
+    <div class="content-full">
+    <div class="hr_line"></div>
+    <h2>Notification boxes</h2>
+    
+    <p><code>&lt;div class="box-download"&gt;</code></p>
+    <p>&nbsp; </p>
+    <div class="box-download">Your text here</div>
+    <p>&nbsp; </p>
+    
+    <p><code>&lt;div class="box-information"&gt;</code></p>
+    <p>&nbsp; </p>
+    <div class="box-information">Your text here</div>
+    <p>&nbsp; </p>
+    
+    <p><code>&lt;div class="box-notification"&gt;</code></p>
+    <p>&nbsp; </p>
+    <div class="box-notification">Your text here</div>
+    <p>&nbsp; </p>
+    
+    <p><code>&lt;div class="box-error"&gt;</code></p>
+    <p>&nbsp; </p>
+    <div class="box-error">Your text here</div>
+    <p>&nbsp; </p>
+    
+    </div>
+    <div class="content-full">
+    <div class="hr_line"></div>
+    <h2>Content toggle</h2>
+	<h6 class="toggle"><span class="indicator"></span><a href="#">This is a slider, click me!</a></h6>
+                <div class="toggle_div">
+                    <div class="block"><p>When he got into the full swing of babbling to himself, it slowly purged  itself into pure English. The sentences grew longer and were enunciated  with a rhythm and ease that was reminiscent of the lecture platform.</p>
+                    </div>
+                </div>
+
+                <h6 class="toggle"><span class="indicator"></span><a href="#">This is a slider, click me!</a></h6>
+                <div class="toggle_div">
+                    <div class="block"><p>But very early in the morning poor Ogilvy, who had seen the shooting star and who was persuaded that a meteorite lay somewhere on the common between Horsell, Ottershaw, and Woking, rose early with the idea of finding it.  Find it he did, soon after dawn, and not far from the sand pits.  An enormous hole had been made by the impact of the projectile, and the sand and gravel had been flung violently in every direction over the heath, forming heaps visible a mile and a half away.  The heather was on fire eastward, and a thin blue smoke rose against the dawn.</p>
+                    </div>
+                </div>
+
+                <h6 class="toggle"><span class="indicator"></span><a href="#">This is a slider, click me!</a></h6>
+      <div class="toggle_div">
+                    <div class="block"><p>&quot;Cook,&quot; here interposed Stubb, accompanying the word with a sudden slap on the shoulder,&amp;mdash;&quot;Cook! why, damn your eyes, you mustn't swear that way when you're preaching. That's no way to convert sinners, cook!&quot;</p>
+                    </div>
+                </div>
+    <div class="hr_line"></div>
+    <h2>Quoteboxes in text</h2>
+    
+    <div class="full-page about">
+    <p><code>&lt;span class="quotebox-left"&gt;Your quote&lt;/span&gt;</code></p>
+    <p>&nbsp; </p>
+    <p><code>&lt;span class="quotebox-right"&gt;Your quote&lt;/span&gt;</code></p>
+    <p>&nbsp; </p>
+  	<p><span class="quotebox-left">But butchers, also, and butchers of the bloodiest badge have been all Martial Commanders whom the world invariably delights to honour</span>Doubtless one leading reason why the world declines honouring us whalemen, is this: they think that, at best, our vocation amounts to a butchering sort of business; and that when actively engaged therein, we are surrounded by all manner of defilements. Butchers we are, that is true. But butchers, also, and butchers of the bloodiest badge have been all Martial Commanders whom the world invariably delights to honour. And as for the matter of the alleged uncleanliness of our business, ye shall soon be initiated into certain facts hitherto pretty generally unknown, and which, upon the whole, will triumphantly plant the sperm whale-ship at least among the cleanliest things of this tidy earth. But even granting the charge in question to be true; what disordered slippery decks of a whale-ship are comparable to the unspeakable carrion of those battle-fields from which so many soldiers return to drink in all ladies' plaudits? And if the idea of peril so much enhances the popular conceit of the soldier's profession; let me assure ye that many a veteran who has freely marched up to a battery, would quickly recoil at the apparition of the sperm whale's vast tail, fanning into eddies the air over his head. For what are the comprehensible terrors of man compared with the interlinked terrors and wonders of God!</p>
+  <p>But, though the world scouts at us whale hunters, yet does it unwittingly pay us the profoundest homage; yea, an all-abounding adoration! for almost all the tapers, lamps, and candles that burn round the globe, burn, as before so many shrines, to our glory!</p>
+  <p>But look at this matter in other lights; weigh it in all sorts of scales; see what we whalemen are, and have been.</p>
+  <p><span class="quotebox-right">But butchers, also, and butchers of the bloodiest badge have been all Martial Commanders whom the world invariably delights to honour</span>Why did the Dutch in De Witt's time have admirals of their whaling fleets? Why did Louis XVI. of France, at his own personal expense, fit out whaling ships from Dunkirk, and politely invite to that town some score or two of families from our own island of Nantucket? Why did Britain between the years 1750 and 1788 pay to her whalemen in bounties upwards of L1,000,000? And lastly, how comes it that we whalemen of America now outnumber all the rest of the banded whalemen in the world; sail a navy of upwards of seven hundred vessels; manned by eighteen thousand men; yearly consuming 4,000,000 of dollars; the ships worth, at the time of sailing, $20,000,000! and every year importing into our harbors a well reaped harvest of $7,000,000. How comes all this, if there be not something puissant in whaling?</p>
+    </div>
+    
+    <div class="hr_line"></div>
+    <h2>Image float on left and right</h2>
+    
+    <div class="full-page about">
+    <p><code>&lt;img class=&quot;image-left&quot; src=&quot;images/clients/1.jpg&quot; alt=&quot;demo image&quot; /&gt;</code></p>
+    <p>&nbsp; </p>
+    <p><code>&lt;img class=&quot;image-right&quot; src=&quot;images/clients/1.jpg&quot; alt=&quot;demo image&quot; /&gt;</code></p>
+    <p>&nbsp; </p>
+  	<p><img class="image-left" src="images/clients/6.jpg" alt="demo image" />Doubtless one leading reason why the world declines honouring us whalemen, is this: they think that, at best, our vocation amounts to a butchering sort of business; and that when actively engaged therein, we are surrounded by all manner of defilements. Butchers we are, that is true. But butchers, also, and butchers of the bloodiest badge have been all Martial Commanders whom the world invariably delights to honour. And as for the matter of the alleged uncleanliness of our business, ye shall soon be initiated into certain facts hitherto pretty generally unknown, and which, upon the whole, will triumphantly plant the sperm whale-ship at least among the cleanliest things of this tidy earth. But even granting the charge in question to be true; what disordered slippery decks of a whale-ship are comparable to the unspeakable carrion of those battle-fields from which so many soldiers return to drink in all ladies' plaudits? And if the idea of peril so much enhances the popular conceit of the soldier's profession; let me assure ye that many a veteran who has freely marched up to a battery, would quickly recoil at the apparition of the sperm whale's vast tail, fanning into eddies the air over his head. For what are the comprehensible terrors of man compared with the interlinked terrors and wonders of God!</p>
+  <p>But, though the world scouts at us whale hunters, yet does it unwittingly pay us the profoundest homage; yea, an all-abounding adoration! for almost all the tapers, lamps, and candles that burn round the globe, burn, as before so many shrines, to our glory!</p>
+  <p>But look at this matter in other lights; weigh it in all sorts of scales; see what we whalemen are, and have been.</p>
+  <p><img class="image-right" src="images/clients/2.jpg" alt="demo image" />Why did the Dutch in De Witt's time have admirals of their whaling fleets? Why did Louis XVI. of France, at his own personal expense, fit out whaling ships from Dunkirk, and politely invite to that town some score or two of families from our own island of Nantucket? Why did Britain between the years 1750 and 1788 pay to her whalemen in bounties upwards of L1,000,000? And lastly, how comes it that we whalemen of America now outnumber all the rest of the banded whalemen in the world; sail a navy of upwards of seven hundred vessels; manned by eighteen thousand men; yearly consuming 4,000,000 of dollars; the ships worth, at the time of sailing, $20,000,000! and every year importing into our harbors a well reaped harvest of $7,000,000. How comes all this, if there be not something puissant in whaling?</p>
+    </div>
+    
+    <div class="hr_line"></div>
+    <h2>Column system</h2>
+    
+    <div class="one-third">
+      	<h5>One third</h5>
+		<p>She often chatted with Passepartout, who did not fail to perceive the state of the lady's heart; and, being the most faithful of domestics, he never exhausted his eulogies of Phileas Fogg's honesty, generosity, and devotion.</p>
+    </div>
+    
+    <div class="one-third">
+      	<h5>One third</h5>
+		<p>She often chatted with Passepartout, who did not fail to perceive the state of the lady's heart; and, being the most faithful of domestics, he never exhausted his eulogies of Phileas Fogg's honesty, generosity, and devotion.</p>
+    </div>
+    
+    <div class="one-third">
+      	<h5>One third</h5>
+		<p>She often chatted with Passepartout, who did not fail to perceive the state of the lady's heart; and, being the most faithful of domestics, he never exhausted his eulogies of Phileas Fogg's honesty, generosity, and devotion.</p>
+    </div>
+    
+    <div class="two-third">
+      	<h5>Two third</h5>
+		<p>She often chatted with Passepartout, who did not fail to perceive the state of the lady's heart; and, being the most faithful of domestics, he never exhausted his eulogies of Phileas Fogg's honesty, generosity, and devotion.  He took pains to calm Aouda's doubts of a successful termination of the journey, telling her that the most difficult part of it had passed, that now they were beyond the fantastic countries of Japan and China, and were fairly on their way to civilised places again.  </p>
+    </div>
+    
+    <div class="one-third">
+      	<h5>One third</h5>
+		<p>She often chatted with Passepartout, who did not fail to perceive the state of the lady's heart; and, being the most faithful of domestics, he never exhausted his eulogies of Phileas Fogg's honesty, generosity, and devotion.</p>
+    </div>
+    
+    <div class="half-page">
+      	<h5>Half page</h5>
+		<p>She often chatted with Passepartout, who did not fail to perceive the state of the lady's heart; and, being the most faithful of domestics, he never exhausted his eulogies of Phileas Fogg's honesty, generosity, and devotion.</p>
+    </div>
+    
+    <div class="half-page">
+      	<h5>Half page</h5>
+		<p>She often chatted with Passepartout, who did not fail to perceive the state of the lady's heart; and, being the most faithful of domestics, he never exhausted his eulogies of Phileas Fogg's honesty, generosity, and devotion.</p>
+    </div>
+    
+    <div class="full-page">
+      	<h5>Full page</h5>
+		<p>She often chatted with Passepartout, who did not fail to perceive the state of the lady's heart; and, being the most faithful of domestics, he never exhausted his eulogies of Phileas Fogg's honesty, generosity, and devotion.  He took pains to calm Aouda's doubts of a successful termination of the journey, telling her that the most difficult part of it had passed, that now they were beyond the fantastic countries of Japan and China, and were fairly on their way to civilised places again.  A railway train from San Francisco to New York, and a transatlantic steamer from New York to Liverpool, would doubtless bring them to the end of this impossible journey round the world within the period agreed upon.</p>
+    </div>
+    
+  <div id="footer">
+    <h4>Full Moon © 2010 All rights reserved. Powered by: <span class="link"><a href="http://themeforest.net/user/agurghis?ref=agurghis" class="footer_link">Alex Gurghis</a></span></h4>
+  </div>
+  <div id="social"> <a href="#"><img src="images/social_media_buttons/facebook_alt.png" alt="Facebook" class="social_icons" title="Facebook"/></a><a href="#"><img src="images/social_media_buttons/twitter.png" alt="Twitter" class="social_icons" title="Twitter"/></a><a href="#"><img src="images/social_media_buttons/flickr.png" alt="Flickr" class="social_icons" title="Flickr"/></a><a href="#"><img src="images/social_media_buttons/delicious.png" alt="Delicious" class="social_icons" title="Delicious" /></a><a href="#"><img src="images/social_media_buttons/diigo.png" alt="Diigo" class="social_icons" title="Diigo" /></a><a href="#"><img src="images/social_media_buttons/email.png" alt="Email" class="social_icons" title="Email" /></a><a href="#"><img src="images/social_media_buttons/google.png" alt="Google buzz" class="social_icons" title="Google buzz" /></a><a href="#"><img src="images/social_media_buttons/lastfm.png" alt="Lastfm" class="social_icons" title="Lastfm" /></a><a href="#"><img src="images/social_media_buttons/linkedin.png" alt="Linkedin" class="social_icons" title="Linkedin" /></a><a href="#"><img src="images/social_media_buttons/myspace.png" alt="Myspace" class="social_icons" title="Myspace" /></a><a href="#"><img src="images/social_media_buttons/picasa.png" alt="Picasa" class="social_icons" title="Picasa" /></a><a href="#"><img src="images/social_media_buttons/posterous.png" alt="Posterous" class="social_icons" title="Posterous" /></a><a href="#"><img src="images/social_media_buttons/rss.png" alt="RSS" class="social_icons" title="RSS" /></a><a href="#"><img src="images/social_media_buttons/sharethis.png" alt="sharethis" class="social_icons" title="Share this" /></a><a href="#"><img src="images/social_media_buttons/stumbleupon.png" alt="Stumbleupon" class="social_icons" title="Stumbleupon" /></a><a href="#"><img src="images/social_media_buttons/technorati.png" alt="Technocrati" class="social_icons" title="Technorati" /></a><a href="#"><img src="images/social_media_buttons/youtube.png" alt="Youtube" class="social_icons" title="Youtube" /></a><a href="#"><img src="images/social_media_buttons/skype_alt.png" alt="Skype" class="social_icons" title="Skype" /></a><a href="#"><img src="images/social_media_buttons/dribble_alt.png" alt="Dribble" class="social_icons" title="Dribble" /></a><a href="#"><img src="images/social_media_buttons/vimeoo.png" alt="Vimeo" class="social_icons" title="Vimeo" /></a><a href="#"><img src="images/social_media_buttons/wordpress.png" alt="Blog" class="social_icons" title="Blog" /></a></div>
+</div>
+</div>
+
+<div class="bottom">
+</div>
+
+<!-- twitter -->
+<script src="Scripts/twitter.js" type="text/javascript"></script>
+<script src="http://www.twitter.com/statuses/user_timeline/agurghis.json?callback=twitterCallback1&amp;count=1&amp;cb=0.947219172026962" type="text/javascript"></script>
+<script src="http://www.twitter.com/statuses/user_timeline/agurghis.json?callback=twitterCallback2&amp;count=1&amp;cb=0.947219172026962" type="text/javascript"></script>
+
+</body>
+</html>
