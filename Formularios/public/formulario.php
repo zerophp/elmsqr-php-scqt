@@ -2,11 +2,11 @@
 enctype="multipart/form-data">
 <ul>
 <li>Id <input type="hidden" name="id" value="1" /></li>
-<li>Name <input type="text" name="name" value="1" /></li>
+<li>Name <input type="text" name="name" value="Escriba el nombre" /></li>
 <li>Email <input type="text" name="email" value="1" /></li>
 <li>Password <input type="password" name="password" value="1" /></li>
 <li>Description <textarea name="description" row="10"></textarea>
-<li>Address <input type="text" value="1" /></li>
+<li>Address <input type="text" value="1" name="address"/></li>
 <li>City <select name="city">
 	<option value="vigo">Vigo</option>
 	<option value="scq">Santiago</option>
