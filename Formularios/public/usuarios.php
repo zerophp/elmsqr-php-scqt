@@ -35,7 +35,7 @@ foreach($files as $key => $file)
 	echo "<td>
 			<a href=\"formulario.php?id=".$key."\">update</a>
 				&nbsp;
-			<a href=\"#\">delete</a>
+			<a href=\"confirmar_delete.php?id=".$key."\">delete</a>
 		</td>";
 	echo "</tr>";
 }
