@@ -1,1 +1,1 @@
-1|agustin|agustincl@gmail.com|1234|Descip|Addres|scq|natacion,futbol|wolf,whale|O|Enviar|dd-2.jpg|s|s|s|s|s|scq|wolf|O|Enviar|f.jpg
+1|agustin|agustincl@gmail.com|1234|Descip|Addres|scq|natacion,futbol|wolf,whale|O|Enviar|dd-2.jpg|s|s|s|s|s|scq|wolf|O|Enviar|f.jpg|a|a|a|a|a|vigo|beisbol|wolf|O|Enviar||q|q|q|q|q|vigo|beisbol,natacion,futbol|dog,wolf,whale|H|Enviar|dd.jpg4|zg56|z||z|z|vigo|beisbol|dog|M|Enviar|imgres.jpg

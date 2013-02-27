@@ -1,4 +1,4 @@
-<a href="formulario.php">Add</a>
+<a href="users.php?action=insert">Add</a>
 <table border="1">
 	<tr>
 		<th>id</th>
@@ -21,11 +21,11 @@
 		<td><?=$row;?></td>
 	<?php endforeach;?>
 		<td>
-			<a href="formulario.php?id=<?=$key;?>">update</a>
+			<a href="users.php?action=update&id=<?=$key;?>">update</a>
 				&nbsp;
-			<a href="confirmar_delete.php?id=<?=$key;?>">delete</a>
+			<a href="users.php?action=delete&id=<?=$key;?>">delete</a>
 		</td>
 	</tr>
 <?php endforeach;?>
-</table>";
+</table>
 	
