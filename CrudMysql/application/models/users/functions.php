@@ -1,40 +1,35 @@
 <?php
 
 /**
- * Read Users from file, and return into array
+ * Read Users from MySQL
  * 
  * @param string $filename
  * @return array $arrayUsers
  */
-function readUsers($filename)
+function readUsers($config)
 {
-	$content=file_get_contents($filename);
-	$files=explode("\r", $content);	
-	foreach($files as $key => $file){
-		$arrayUsers[]=explode("|",$file);
-	}	
-	return $arrayUsers;
-}
-
-/**
- *	Return array pipe separated
- *
- * @param array $array
- * @return boolean
- */
-
-function cambiarArray($array)
-{
-	$array2=array();
-	foreach ($array as $key => $value)
+	// Conectarse al Servidor
+	$cnx=mysqli_connect($config['db.server'], $config['db.user'], 
+						$config['db.password'],$config['db.database']);	
+	// Leer Usuarios
+	$query = "SELECT * FROM users";
+	$result = mysqli_query($cnx, $query);	
+	// Retornar Usuarios como array
+	while ($row = mysqli_fetch_assoc($result))
 	{
-		if(is_array($value))
-			$array2[]=implode(',', $value);
-		else
-			$array2[]=$value;
+		$users[]=$row;
 	}
-	return $array2;
+	return $users;
 }
+
+
+
+function readUser($id)
+{
+
+}
+
+
 
 
 
@@ -138,12 +133,7 @@ function deleteImage($users,$uploadDirectory)
  */
 function insertUser($arrayUser,$usuariosFile)
 {
-	$data=cambiarArray($arrayUser);
-	$data=implode('|', $data);
-	$data.="\r";
-	file_put_contents($usuariosFile, $data, FILE_APPEND);
 	
-	return;
 		
 }
 
@@ -154,27 +144,12 @@ function insertUser($arrayUser,$usuariosFile)
  */
 function updateUser($users,$userFilename)
 {
-	foreach ($users as $key => $value)
-	{
-		$pipes[]=implode("|",$value);
-	}
-	// Convertir a string
-	$datos=implode("\r",$pipes);
-	// Guardar en el archivo usuarios
-	file_put_contents($userFilename, $datos);
-	return;
+	
 }
 
 
 function deleteUser($users,$userFilename)
 {
-	foreach ($users as $key => $value)
-	{
-		$pipes[]=implode("|",$value);
-	}
-	$datos=implode("\r",$pipes);
-	// Guardar en el archivo usuarios
-	file_put_contents($userFilename, $datos);
-	return;
+	
 }
 

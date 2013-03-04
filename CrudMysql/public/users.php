@@ -6,8 +6,13 @@
 
 // Read config
 $config = parse_ini_file("../application/configs/config.ini", true);
-$userFilename=$config['production']['filename'];
-$uploadDirectory=$config['production']['uploadDirectory'];
+
+//$config = readConfig($config, 'development');
+
+$config = $config['production'];
+
+$userFilename=$config['filename'];
+$uploadDirectory=$config['uploadDirectory'];
 
 // Include files
 include_once('../application/models/users/functions.php');
@@ -70,7 +75,7 @@ switch ($action)
 		}
 	break;	
 	case 'select';
-		$arrayUsers=readUsers($userFilename);
+		$arrayUsers=readUsers($config);
 		include_once '../application/views/users/select.php';
 		
 	break;	
