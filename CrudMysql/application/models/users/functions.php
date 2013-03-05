@@ -18,6 +18,18 @@ function readUsers($config)
 	while ($row = mysqli_fetch_assoc($result))
 	{
 		$users[]=$row;
+		
+		$query = "SELECT * FROM users_has_sports WHERE users_iduser=".$row['iduser'];
+		
+		$result = mysqli_query($link, $query);
+		// Retornar Usuarios como array
+		while ($rowSports = mysqli_fetch_assoc($result))
+		{
+			$sports[]=$rowSports['sports_idsport'];
+		}
+		$users[0]['sports']=implode(',',$sports);
+		
+		
 	}
 	return $users;
 }

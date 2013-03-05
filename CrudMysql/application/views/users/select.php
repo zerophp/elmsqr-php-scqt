@@ -1,3 +1,6 @@
+<?php 
+debug($arrayUsers);
+?>
 <a href="users.php?action=insert">Add</a>
 <table border="1">
 	<tr>
@@ -21,9 +24,9 @@
 		<td><?=$row;?></td>
 	<?php endforeach;?>
 		<td>
-			<a href="users.php?action=update&id=<?=$key;?>">update</a>
+			<a href="users.php?action=update&id=<?=$rows['iduser'];?>">update</a>
 				&nbsp;
-			<a href="users.php?action=delete&id=<?=$key;?>">delete</a>
+			<a href="users.php?action=delete&id=<?=$rows['iduser'];?>">delete</a>
 		</td>
 	</tr>
 <?php endforeach;?>

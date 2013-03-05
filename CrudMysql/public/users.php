@@ -14,8 +14,9 @@ $config = $config['production'];
 $userFilename=$config['filename'];
 $uploadDirectory=$config['uploadDirectory'];
 
-// Include view helpers
+// Include helpers
 include_once('../application/views/helpers/viewHelpers.php');
+include_once('../application/controllers/helpers/actionHelpers.php');
 
 // Include files
 include_once('../application/models/users/functions.php');
@@ -62,7 +63,7 @@ switch ($action)
 	case 'update':	
 		if($_POST)
 		{			
-			$users=readUsers($userFilename);
+			$users=readUsers($config);
 			$usuario=$users[$_POST['id']];
 			$name=updateImage($usuario[11], $uploadDirectory);
 			$_POST[]=$name;			
@@ -73,10 +74,11 @@ switch ($action)
 		}
 		else 
 		{	
-			$users=readUsers($userFilename);
+			$users=readUsers($config);
+// 			debug($users);
 			$usuario=$users[$_GET['id']];
-			$sports=explode(',',$users[$_GET['id']][7]);
-			$pets=explode(',',$users[$_GET['id']][8]);
+			$sports=explode(',',$users[$_GET['id']]['sports']);
+			$pets=explode(',',$users[$_GET['id']]['pets']);
 			include_once('../application/views/forms/users.php');
 		}
 	break;	
