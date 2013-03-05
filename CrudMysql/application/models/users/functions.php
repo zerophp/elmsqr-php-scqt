@@ -9,11 +9,11 @@
 function readUsers($config)
 {
 	// Conectarse al Servidor
-	$cnx=mysqli_connect($config['db.server'], $config['db.user'], 
+	$link=mysqli_connect($config['db.server'], $config['db.user'], 
 						$config['db.password'],$config['db.database']);	
 	// Leer Usuarios
 	$query = "SELECT * FROM users";
-	$result = mysqli_query($cnx, $query);	
+	$result = mysqli_query($link, $query);	
 	// Retornar Usuarios como array
 	while ($row = mysqli_fetch_assoc($result))
 	{
@@ -131,9 +131,18 @@ function deleteImage($users,$uploadDirectory)
  * @param array $arrayUser users data
  * @param string $usuariosFile filename
  */
-function insertUser($arrayUser,$usuariosFile)
+function insertUser($config,$arrayUser,$usuariosFile)
 {
 	
+// 	echo "<pre>";
+// 	print_r($arrayUser);
+// 	echo "</pre>";
+// 	die;
+	$arrayUser['pets']=implode(',',$arrayUser['pets']);
+	$id=save($config, 'users', $arrayUser);
+	
+	return $id;
+
 		
 }
 
@@ -152,4 +161,78 @@ function deleteUser($users,$userFilename)
 {
 	
 }
+
+
+function initUser()
+{
+	$usuario=array(
+			'name'=>'',
+			'email'=>'',
+			'password'=>'',
+			'description'=>'',
+			'address'=>'',
+			'city'=>array(),
+			'pets'=>array(),
+			'sports'=>array(),
+			'sex'=>array(),
+			'photo'=>''
+	);
+	return $usuario;
+}
+
+
+function save($config, $table, $arrayAssoc, $where=NULL)
+{
+// 	echo "<pre>";
+// 		print_r($arrayAssoc);
+// 		echo "</pre>";
+// 		die;
+	
+	$link=mysqli_connect($config['db.server'], $config['db.user'],
+			$config['db.password'],$config['db.database']);
+	
+	$tableColumns="DESCRIBE ".$table;
+	$result=mysqli_query($link, $tableColumns);
+	while($row=mysqli_fetch_assoc($result))
+	{
+		$columnst[]=$row['Field'];
+	}
+	
+	foreach($arrayAssoc as $key => $values)
+	{
+		if(in_array($key,$columnst))
+			$columns[]=$key."='".$values."'";
+	}
+	
+	if($where==NULL)
+	{
+		$query="INSERT INTO ".$table." SET ";
+		$query.=implode(',',$columns);
+		mysqli_query($link, $query);
+		$id=mysqli_insert_id($link);
+	}
+	else
+	{
+		$query="UPDATE ".$table." SET ";
+		$query.=implode(',',$columns);
+		$query.=" WHERE ".$where;
+		mysqli_query($link, $query);
+		$id=TRUE;
+		
+	}
+		
+
+// 	echo "<pre>";
+// 	print_r($query);
+// 	echo "</pre>";
+	
+	
+	return $id;
+	
+}
+
+
+
+
+
 

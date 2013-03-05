@@ -14,6 +14,9 @@ $config = $config['production'];
 $userFilename=$config['filename'];
 $uploadDirectory=$config['uploadDirectory'];
 
+// Include view helpers
+include_once('../application/views/helpers/viewHelpers.php');
+
 // Include files
 include_once('../application/models/users/functions.php');
 
@@ -45,13 +48,16 @@ switch ($action)
 		if($_POST)
 		{
 			$name=uploadPhoto($uploadDirectory);
-			$_POST[]=$name;
-			insertUser($_POST,$userFilename);				
+			$_POST['photo']=$name;
+			insertUser($config, $_POST,$userFilename);				
 			header('Location: /users.php');
 			exit();
 		}
 		else
+		{
+			$usuario=initUser();
 			include_once('../application/views/forms/users.php');
+		}
 	break;	
 	case 'update':	
 		if($_POST)
@@ -76,8 +82,7 @@ switch ($action)
 	break;	
 	case 'select';
 		$arrayUsers=readUsers($config);
-		include_once '../application/views/users/select.php';
-		
+		include_once '../application/views/users/select.php';		
 	break;	
 	default:
 		echo "Esto default";
