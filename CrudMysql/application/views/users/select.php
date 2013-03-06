@@ -1,6 +1,3 @@
-<?php 
-debug($arrayUsers);
-?>
 <a href="users.php?action=insert">Add</a>
 <table border="1">
 	<tr>
@@ -10,13 +7,12 @@ debug($arrayUsers);
 		<th>password</th>
 		<th>description</th>
 		<th>address</th>
-		<th>city</th>
-		<th>sports</th>
 		<th>pets</th>
+		<th>photo</th>
+		<th>city</th>
 		<th>sex</th>
-		<th>enviar</th>
-		<th>photo</th>		
-		<th>options</th>
+		<th>sports</th>
+		<th>options</th>		
 	</tr>
 <?php foreach ($arrayUsers as $key => $rows): ?>
 	<tr>

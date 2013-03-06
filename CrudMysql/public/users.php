@@ -74,11 +74,10 @@ switch ($action)
 		}
 		else 
 		{	
-			$users=readUsers($config);
-// 			debug($users);
-			$usuario=$users[$_GET['id']];
-			$sports=explode(',',$users[$_GET['id']]['sports']);
-			$pets=explode(',',$users[$_GET['id']]['pets']);
+			$usuario=readUser($config,$_GET['id']);
+			debug($usuario);
+			$sports=explode(',',$usuario['sports']);
+			$pets=explode(',',$usuario['pets']);
 			include_once('../application/views/forms/users.php');
 		}
 	break;	

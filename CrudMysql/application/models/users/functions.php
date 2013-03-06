@@ -17,17 +17,18 @@ function readUsers($config)
 	// Retornar Usuarios como array
 	while ($row = mysqli_fetch_assoc($result))
 	{
-		$users[]=$row;
+		$users[$row['iduser']]=$row;
 		
 		$query = "SELECT * FROM users_has_sports WHERE users_iduser=".$row['iduser'];
 		
-		$result = mysqli_query($link, $query);
+		$result2 = mysqli_query($link, $query);
+		$sports=array();
 		// Retornar Usuarios como array
-		while ($rowSports = mysqli_fetch_assoc($result))
+		while ($rowSports = mysqli_fetch_assoc($result2))
 		{
 			$sports[]=$rowSports['sports_idsport'];
 		}
-		$users[0]['sports']=implode(',',$sports);
+		$users[$row['iduser']]['sports']=implode(',',$sports);
 		
 		
 	}
@@ -36,9 +37,32 @@ function readUsers($config)
 
 
 
-function readUser($id)
+function readUser($config, $id)
 {
-
+	// Conectarse al Servidor
+	$link=mysqli_connect($config['db.server'], $config['db.user'],
+			$config['db.password'],$config['db.database']);
+	// Leer Usuarios
+	$query = "SELECT * FROM users WHERE iduser=".$id;
+	$result = mysqli_query($link, $query);
+	// Retornar Usuarios como array
+	while ($row = mysqli_fetch_assoc($result))
+	{
+		$users[]=$row;
+	
+		$query = "SELECT * FROM users_has_sports WHERE users_iduser=".$row['iduser'];
+	
+		$result2 = mysqli_query($link, $query);
+		$sports=array();
+		// Retornar Usuarios como array
+		while ($rowSports = mysqli_fetch_assoc($result2))
+		{
+			$sports[]=$rowSports['sports_idsport'];
+		}
+		$users[0]['sports']=implode(',',$sports);
+	}
+	
+	return $users[0];
 }
 
 
@@ -146,13 +170,23 @@ function deleteImage($users,$uploadDirectory)
 function insertUser($config,$arrayUser,$usuariosFile)
 {
 	
-// 	echo "<pre>";
-// 	print_r($arrayUser);
-// 	echo "</pre>";
-// 	die;
-	$arrayUser['pets']=implode(',',$arrayUser['pets']);
+	$link=mysqli_connect($config['db.server'], $config['db.user'],
+			$config['db.password'],$config['db.database']);
+	
 	$id=save($config, 'users', $arrayUser);
 	
+	$query="DELETE FROM users_has_sports WHERE users_iduser=".$id;
+	mysqli_query($link, $query);
+	
+	
+	
+	foreach($arrayUser['sport'] as $key => $value)
+	{		
+		$query="INSERT INTO users_has_sports SET 
+					users_iduser=".$id.",
+					sports_idsport=".$value;
+		mysqli_query($link, $query);		
+	}
 	return $id;
 
 		
@@ -195,11 +229,6 @@ function initUser()
 
 function save($config, $table, $arrayAssoc, $where=NULL)
 {
-// 	echo "<pre>";
-// 		print_r($arrayAssoc);
-// 		echo "</pre>";
-// 		die;
-	
 	$link=mysqli_connect($config['db.server'], $config['db.user'],
 			$config['db.password'],$config['db.database']);
 	
@@ -213,7 +242,12 @@ function save($config, $table, $arrayAssoc, $where=NULL)
 	foreach($arrayAssoc as $key => $values)
 	{
 		if(in_array($key,$columnst))
-			$columns[]=$key."='".$values."'";
+		{
+			if(is_array($values))
+				$columns[]=$key."='".implode(',',$values)."'";
+			else
+				$columns[]=$key."='".$values."'";
+		}
 	}
 	
 	if($where==NULL)
@@ -232,13 +266,6 @@ function save($config, $table, $arrayAssoc, $where=NULL)
 		$id=TRUE;
 		
 	}
-		
-
-// 	echo "<pre>";
-// 	print_r($query);
-// 	echo "</pre>";
-	
-	
 	return $id;
 	
 }
