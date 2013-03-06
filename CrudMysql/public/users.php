@@ -31,17 +31,16 @@ switch ($action)
 	case 'delete':	
 		if($_POST)
 		{
-			$users=readUsers($userFilename);
-			unlink($users[$_POST['id']][11]);
+			$users=readUser($config,$_POST['id']);
+			unlink($users['photo']);
 			deleteImage($users,$uploadDirectory);			
-			deleteUser($users,$userFilename);
+			deleteUser($config, $_POST['id']);
 			header('Location: /users.php');
 			exit();
 		}
 		else
 		{
-			$users=readUsers($userFilename);
-			$usuario=$users[$_GET['id']];			
+			$usuario=readUser($config,$_GET['id']);
 			include_once('../application/views/users/delete.php');
 		}
 	break;	

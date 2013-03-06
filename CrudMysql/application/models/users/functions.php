@@ -158,7 +158,7 @@ function updateImage($lastImage, $uploadDirectory)
 function deleteImage($users,$uploadDirectory)
 {
 	$path=$_SERVER['DOCUMENT_ROOT'].$uploadDirectory;	
-	unlink($path."/".$users[$_POST['id']][11]);
+	unlink($path."/".$users['photo']);
 	return;
 }
 
@@ -218,9 +218,18 @@ function updateUser($config, $id, $arrayUser)
 }
 
 
-function deleteUser($users,$userFilename)
+function deleteUser($config, $id)
 {
+	$link=mysqli_connect($config['db.server'], $config['db.user'],
+			$config['db.password'],$config['db.database']);
 	
+	$query="DELETE FROM users_has_sports WHERE users_iduser=".$id;
+	mysqli_query($link, $query);
+	
+	$query="DELETE FROM users WHERE iduser=".$id;
+	mysqli_query($link, $query);
+		
+	return;
 }
 
 
