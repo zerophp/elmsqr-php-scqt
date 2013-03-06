@@ -74,8 +74,9 @@ function readUser($config, $id)
  * @param string $uploadDirectory
  * @return string $name final filename
  */
-function uploadPhoto($uploadDirectory)
+function uploadPhoto($config)
 {
+	$uploadDirectory=$config['uploadDirectory'];
 	$filename=$_FILES['photo']['tmp_name'];
 	$uploadDirectory="/uploads";
 	$name=$_FILES['photo']['name'];
@@ -133,8 +134,10 @@ function uploadImage()
  * @param string $uploadDirectory
  * @return string $name
  */
-function updateImage($lastImage, $uploadDirectory)
+function updateImage($lastImage, $config)
 {
+	$uploadDirectory=$config['uploadDirectory'];
+	
 	if(isset($_FILES['photo']['tmp_name'])&&
 	$_FILES['photo']['tmp_name']!='')
 	{
@@ -155,8 +158,9 @@ function updateImage($lastImage, $uploadDirectory)
 	return $name;
 }
 
-function deleteImage($users,$uploadDirectory)
+function deleteImage($users,$config)
 {
+	$uploadDirectory=$config['uploadDirectory'];
 	$path=$_SERVER['DOCUMENT_ROOT'].$uploadDirectory;	
 	unlink($path."/".$users['photo']);
 	return;
@@ -167,7 +171,7 @@ function deleteImage($users,$uploadDirectory)
  * @param array $arrayUser users data
  * @param string $usuariosFile filename
  */
-function insertUser($config,$arrayUser,$usuariosFile)
+function insertUser($config,$arrayUser)
 {
 	
 	$link=mysqli_connect($config['db.server'], $config['db.user'],

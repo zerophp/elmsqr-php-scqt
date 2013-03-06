@@ -2,7 +2,7 @@
 $arrayUsers=$viewVars['arrayUsers'];
 $title=$viewVars['title'];
 ?>
-<a href="users.php?action=insert">Add</a>
+<a href="?controller=users&action=insert">Add</a>
 <table border="1">
 	<tr>
 		<th>id</th>
