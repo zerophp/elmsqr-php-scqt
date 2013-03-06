@@ -20,6 +20,7 @@ include_once('../application/controllers/helpers/actionHelpers.php');
 
 // Include files
 include_once('../application/models/users/functions.php');
+include_once('../application/controllers/helpers/frontHelpers.php');
 
 if(isset($_GET['action']))
 	$action=$_GET['action'];
@@ -41,7 +42,8 @@ switch ($action)
 		else
 		{
 			$usuario=readUser($config,$_GET['id']);
-			include_once('../application/views/users/delete.php');
+			$viewVars=array('usuario'=>$usuario);
+			$content=renderView($config, 'users/delete.php', $viewVars);
 		}
 	break;	
 	case 'insert':
@@ -56,7 +58,8 @@ switch ($action)
 		else
 		{
 			$usuario=initUser();
-			include_once('../application/views/forms/users.php');
+			$viewVars=array('usuario'=>$usuario);
+			$content=renderView($config, 'forms/users.php', $viewVars);
 		}
 	break;	
 	case 'update':	
@@ -73,14 +76,21 @@ switch ($action)
 		{	
 			$usuario=readUser($config,$_GET['id']);
 			debug($usuario);
-			$sports=explode(',',$usuario['sports']);
-			$pets=explode(',',$usuario['pets']);
-			include_once('../application/views/forms/users.php');
+			//$sports=explode(',',$usuario['sports']);
+			//$pets=explode(',',$usuario['pets']);
+			$viewVars=array('usuario'=>$usuario);
+			$content=renderView($config, 'forms/users.php', $viewVars);
+			
 		}
 	break;	
 	case 'select';
+		$title = "Tabla de usuarios :: Select";
 		$arrayUsers=readUsers($config);
-		include_once '../application/views/users/select.php';		
+		$viewVars=array('arrayUsers'=>$arrayUsers,
+						 'title'=>$title
+					);
+		$content=renderView($config, 'users/select.php', $viewVars);
+				
 	break;	
 	default:
 		echo "Esto default";
@@ -88,6 +98,13 @@ switch ($action)
 }
 
 
+$layoutVars=array('content'=>$content,
+				  'title'=>$title
+);
+$layout=renderLayout($config, 'layout.php', $layoutVars);
+
+
+echo $layout;
 
 
 
