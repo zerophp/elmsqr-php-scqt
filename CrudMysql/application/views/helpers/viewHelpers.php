@@ -56,6 +56,10 @@ function selectboxFromDB($config, $table, $labelColumn, $idColumn,
 function radioCheckFromDB ($config, $table, $labelColumn, $idColumn, 
 						$name, $data, $checkbox=FALSE)
 {
+	
+	if(!is_array($data))
+		$data=explode(',',$data);
+
 	$html='';
 	
 	// Conectar al servidor y a la BD
@@ -83,7 +87,7 @@ function radioCheckFromDB ($config, $table, $labelColumn, $idColumn,
 	{
 		$html.= $row[$labelColumn].": ";
 		$html.="<input type=\"".$fieldType."\" name=\"".$name."\" value=\"".$row[$idColumn]."\""; 
-		 	if(in_array($row[$labelColumn],$data))
+		 	if(in_array($row[$idColumn],$data))
 		 		$html.="checked";
 		 	else
 		 		$html.="";

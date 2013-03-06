@@ -175,11 +175,6 @@ function insertUser($config,$arrayUser,$usuariosFile)
 	
 	$id=save($config, 'users', $arrayUser);
 	
-	$query="DELETE FROM users_has_sports WHERE users_iduser=".$id;
-	mysqli_query($link, $query);
-	
-	
-	
 	foreach($arrayUser['sport'] as $key => $value)
 	{		
 		$query="INSERT INTO users_has_sports SET 
@@ -197,8 +192,28 @@ function insertUser($config,$arrayUser,$usuariosFile)
  * @param string $users
  * @param string $userFilename
  */
-function updateUser($users,$userFilename)
+function updateUser($config, $id, $arrayUser)
 {
+	$link=mysqli_connect($config['db.server'], $config['db.user'],
+			$config['db.password'],$config['db.database']);
+	
+	$id=save($config, 'users', $arrayUser, 'iduser='.$id);
+	
+	$query="DELETE FROM users_has_sports WHERE users_iduser=".$id;
+	mysqli_query($link, $query);
+	
+	
+	
+	foreach($arrayUser['sport'] as $key => $value)
+	{
+		$query="INSERT INTO users_has_sports SET
+					users_iduser=".$id.",
+					sports_idsport=".$value;
+		mysqli_query($link, $query);
+	}
+	
+	return $id;
+	
 	
 }
 
@@ -217,10 +232,10 @@ function initUser()
 			'password'=>'',
 			'description'=>'',
 			'address'=>'',
-			'city'=>array(),
+			'cities_idcity'=>array(),
 			'pets'=>array(),
 			'sports'=>array(),
-			'sex'=>array(),
+			'genders_idgender'=>array(),
 			'photo'=>''
 	);
 	return $usuario;
@@ -263,8 +278,7 @@ function save($config, $table, $arrayAssoc, $where=NULL)
 		$query.=implode(',',$columns);
 		$query.=" WHERE ".$where;
 		mysqli_query($link, $query);
-		$id=TRUE;
-		
+		$id=TRUE;		
 	}
 	return $id;
 	

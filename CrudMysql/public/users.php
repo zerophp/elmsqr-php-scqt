@@ -63,12 +63,10 @@ switch ($action)
 	case 'update':	
 		if($_POST)
 		{			
-			$users=readUsers($config);
-			$usuario=$users[$_POST['id']];
-			$name=updateImage($usuario[11], $uploadDirectory);
-			$_POST[]=$name;			
-			$users[$_POST['id']]=cambiarArray($_POST);
-			updateUser($users,$userFilename);
+			$usuario=readUser($config,$_POST['id']);
+			$name=updateImage($usuario['photo'], $uploadDirectory);
+			$_POST['photo']=$name;			
+			updateUser($config, $_POST['id'], $_POST);
 			header('Location: /users.php');
 			exit();				
 		}

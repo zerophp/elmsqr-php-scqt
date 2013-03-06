@@ -13,10 +13,10 @@
 	<?=selectboxFromDB($config, 'sports', 'sport', 'idsport','sport', array($usuario['sports']), TRUE);?>
 </li>
 <li>Pets 
-	<?=radioCheckFromDB ($config, 'pets', 'pet', 'idpet', 'pets', array($usuario['pets']), TRUE);?>
+	<?=radioCheckFromDB($config, 'pets', 'pet', 'idpet', 'pets', $usuario['pets'], TRUE);?>
 </li>
 <li>Sexo 
-	<?=radioCheckFromDB ($config, 'genders', 'gender', 'idgender', 'genders_idgender', array($usuario['genders_idgender']), FALSE);?>
+	<?=radioCheckFromDB($config, 'genders', 'gender', 'idgender', 'genders_idgender', array($usuario['genders_idgender']), FALSE);?>
 </li>
 <li>
 	Photo <input type="file" name="photo"/>
