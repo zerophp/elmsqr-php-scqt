@@ -26,15 +26,8 @@ $title=$layoutVars['title'];
 </head>
 <body>
 <?php require '/assets/js/script_home.js';?>
-<div id="wrapper">	
-	<div id="top">
-		<?php require 'partials/top.php';?>    
-	</div>
-	<div>
-		<?php require 'partials/nav.php';?>    
-	</div>	  
-	<div class="hr"></div>	  
-      
+<div id="wrapper">		  
+	<div class="hr"></div>			      
 	<div id="contentWrap">
 		<div class="hr_line"></div>
 		<div id="content-two-third">
@@ -43,15 +36,10 @@ $title=$layoutVars['title'];
 			<?=$content;?>	
 		</div>		
 	</div>
-	<div id="footer">
-		<?php require 'partials/footer.php';?>    
-	</div>
-
+	
+	
 </div>
 
 <div class="bottom"></div>
-
-
-
 </body>
 </html>

@@ -34,24 +34,35 @@ $title=$layoutVars['title'];
 		<?php require 'partials/nav.php';?>    
 	</div>	  
 	<div class="hr"></div>	  
-      
+	<div id="preview_wrap">
+		<?php require 'partials/preview.php';?>
+	</div>
+	<div id="thumbs">
+		<?php require 'partials/thumbs.php';?>		
+	</div>	      
 	<div id="contentWrap">
 		<div class="hr_line"></div>
 		<div id="content-two-third">
 			<?php //require 'partials/content.php';?>
 			<h1><?=$title;?></h1>
 			<?=$content;?>	
-		</div>		
+		</div>
+		<div id="column" class="right">      
+			<?php require 'partials/right.php';?>
+		</div>
 	</div>
 	<div id="footer">
 		<?php require 'partials/footer.php';?>    
 	</div>
-
+	<div id="social">   	
+		<?php require 'partials/socials.php';?>
+	</div>
 </div>
 
 <div class="bottom"></div>
 
-
+<!-- twitter -->
+<?php require 'partials/twitter.php';?>
 
 </body>
 </html>
