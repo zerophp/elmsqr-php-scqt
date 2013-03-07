@@ -20,8 +20,12 @@ include_once('../application/controllers/helpers/frontHelpers.php');
 
 
 $route=router($config);
+session_start();
+$route=acl($config,$route);
 
-// debug($route);
+
+
+
 
 switch ($route['controller'])
 {
@@ -29,8 +33,12 @@ switch ($route['controller'])
 		include('../application/controllers/users.php');
 	break;
 	
+	case 'author':
+		include('../application/controllers/author.php');
+	break;
 	
 	case 'error':
+		debug($route);
 		echo "error";
 		die;
 		include('../application/controllers/errors.php');
@@ -38,5 +46,6 @@ switch ($route['controller'])
 	
 	default:
 	case 'index':
+		include('../application/controllers/index.php');
 	break;
 }

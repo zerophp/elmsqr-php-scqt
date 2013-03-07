@@ -2,6 +2,16 @@
 $arrayUsers=$viewVars['arrayUsers'];
 $title=$viewVars['title'];
 ?>
+
+
+<ul>
+<li><a href="/index/index">Home</a></li>
+<li><a href="/author/login">Login</a></li>
+<li><a href="/author/logout">Logout</a></li>
+<li><a href="/users/select">Backend</a></li>
+<li>Hola <?=$_SESSION['iduser']?></li>
+
+</ul>
 <a href="?controller=users&action=insert">Add</a>
 <table border="1">
 	<tr>
