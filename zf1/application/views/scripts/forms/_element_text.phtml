@@ -1,0 +1,18 @@
+<p>
+	<label><?=$this->translate($this->element->getLabel());?></label>
+		<span data="<?=$this->data;?>"><?php echo $this->{$this->element->helper}
+		(
+	        $this->element->getName(),
+	        $this->element->getValue(),
+	        $this->element->getAttribs()
+		) ?>
+		</span>
+		<?php if ($this->formErrors):?>
+			<span class="input-notification success png_bg">
+			    <?php echo $this->formErrors($this->element->getMessages()) ?>
+			</span>
+		<?php endif;?> 
+		<!-- Classes for input-notification: success, error, information, attention -->
+		<br /><small><?php echo $this->element->getDescription() ?></small>
+</p>
+

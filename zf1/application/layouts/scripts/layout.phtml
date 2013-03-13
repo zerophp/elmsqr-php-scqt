@@ -19,7 +19,12 @@ echo $this->doctype(); ?>
         <a href="<?php echo $this->url(
             array('controller'=>'album'),
             'default',
-            true) ?>">Album</a>
+            true) ?>">Albums</a>
+         &nbsp;
+        <a href="<?php echo $this->url(
+            array('controller'=>'user'),
+            'default',
+            true) ?>">Users</a>
     </div>
     
     <div id="content">
