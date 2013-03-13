@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+include_path=5;com.zend.php.phpunit.CONTAINER\u00050;/zf1\u00055;org.zend.php.framework.CONTAINER
+phpVersion=php5.3
+use_asp_tags_as_php=false

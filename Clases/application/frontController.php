@@ -7,11 +7,12 @@ class frontController
 	
 	function __construct($route)
 	{
-		
-		
 		$this->route = $route->getRoute();
 		
-		include ('../application/controllers/'.$this->route['controller'].".php");
+		$controller = 'controllers_'.$this->route['controller']."Controller";
+		$action = $this->route['action'].'Action';
+		$instance = new $controller;
+		$instance->$action();	
 	}
 	
 	

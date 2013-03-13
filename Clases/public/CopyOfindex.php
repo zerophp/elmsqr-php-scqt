@@ -23,7 +23,7 @@ $route=acl($config,$route);
 switch ($route['controller'])
 {
 	case 'users':
-		include('../application/controllers/users.php');
+		include('../application/controllers/usersController.php');
 		break;
 
 	case 'author':

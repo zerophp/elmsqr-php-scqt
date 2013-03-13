@@ -9,15 +9,21 @@ class Bootstrap
 	{
 		$this->config=$config;
 		$this->initSession();
+		$this->initRegister();
 		$this->initRouter();
 		$this->route = $this->initAcl();
-
 	}
 	
 	protected function initSession()
 	{
 		session_start();
 		return;
+	}
+
+	protected function initRegister()
+	{
+		
+		$_SESSION['register']['config']=$this->config;
 	}
 	
 	protected function initRouter()
@@ -39,8 +45,8 @@ class Bootstrap
 					@$route['vars'][$value]=$parse[$key+1];
 			}
 		}
-		
-		if(file_exists($this->config['controllers']."/".$route['controller'].".php"))
+				
+		if(file_exists($this->config['controllers']."/".$route['controller']."Controller.php"))
 		{
 			// Read actions from controlller
 			$actions['users']=array('insert','update','delete','select','index');
@@ -48,7 +54,7 @@ class Bootstrap
 			$actions['author']=array('login','logout');
 		
 			if(in_array($route['action'],$actions[$route['controller']] ))
-				return $route;
+				$this->route=$route;
 			else
 			{
 				$route['controller']='error';
@@ -61,34 +67,58 @@ class Bootstrap
 			// No controller
 			$route['controller']='error';
 			$route['action']=NO_CONTROLLER;
-		}
+		}			
 		
 		$this->route=$route;		
 	}
 	
 	protected function initAcl()
 	{
-// 		$this->route=acl($this->config,$this->route);
-
-		$permissions=array($_SESSION['iduser']=>array(
+		$roles = array('superadmin','admin','user','guest');
+		$defaultRol = 'guest';
+		$currentRol = 'guest';
+		
+		$permissions=array('guest'=>array(
 				'index'.".".'index',
-				'users'.".".'select',
-				'users'.".".'insert',
-				'users'.".".'update',
-				'users'.".".'delete',
+				'author'.".".'login',
 				'author'.".".'logout',
-		));
+					),
+				'admin'=>array(
+						'index'.".".'index',
+						'users'.".".'select',
+						'users'.".".'insert',
+						'users'.".".'update',
+						'users'.".".'delete',
+						'author'.".".'login',
+						'author'.".".'logout',
+				)				
+		);
+		
 		if(isset($_SESSION['iduser']))
 		{
 			if(in_array($this->route['controller'].".".$this->route['action'],
-					$permissions[$_SESSION['iduser']]
+					$permissions[$currentRol]
 			))
 			{
 				return $this->route;
 			}
 		}
-		$this->route['controller']='author';
-		$this->route['action']='login';
+		elseif($currentRol=='guest')
+		{
+			if(in_array($this->route['controller'].".".$this->route['action'],
+					$permissions[$currentRol]
+			))
+			{
+				return $this->route;
+			}			
+		}
+		else
+		{ 
+			$this->route['controller']='index';
+			$this->route['action']='index';		
+		}
+		
+		
 		
 		return $this->route;
 
